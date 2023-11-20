@@ -1,0 +1,5 @@
+server:
+  grpc:
+    host: localhost
+    port: 2202
+    timeout: 30000

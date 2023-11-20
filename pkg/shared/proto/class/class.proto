@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package miniProject;
+
+// import "google/protobuf/empty.proto";
+
+option go_package = "./;miniProject";
+
+message ClassMP {
+  int32 ClassId = 1;
+  string ClassName = 2;
+  string ClassDescription = 3;
+  string Level = 4;
+  string Status = 5;
+}
+
+message ClassDistinct {
+  string ClassName = 1;
+}
+
+message GetClassResponse {
+  repeated ClassMP Data = 1;
+}
+
+message GetClassDistinctResponse {
+  repeated ClassDistinct Data = 1;
+}
+
+message GetClassDistinctRequest {
+  string Status = 1;
+}
+
+message GetClassRequest {
+  string ClassName = 1;
+  string Status = 2;
+  string Level = 3;
+}
+
+service ClassService {
+  // rpc GetClass(google.protobuf.Empty) returns (GetClassResponse);
+
+  rpc GetClass(GetClassRequest) returns (GetClassResponse);
+  rpc GetClassDistinct(GetClassDistinctRequest) returns (GetClassDistinctResponse);
+}
