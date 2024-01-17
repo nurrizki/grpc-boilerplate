@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    ports:
+      - "2202:2202"
+  redis:
+    image: "redis"
